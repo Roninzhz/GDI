@@ -24,9 +24,14 @@ namespace GDI
                 num = random.Next();
 
                 if (i % 2 != 0)
+                {
                     code = (char)('0' + (char)(num % 10));//2，4位上产生数字
+                }
                 else
+                {
                     code = (char)('A' + (char)(num % 26));//1，3位上产生字母
+                }
+
                 checkCode += code;
             }
             //将产生的字符串写到cookies中
@@ -38,7 +43,10 @@ namespace GDI
         private void DrawCheckImage1(string checkCode)
         {
             if (checkCode == null || checkCode.Trim() == String.Empty)
+            {
                 return;
+            }
+
             Bitmap image = new Bitmap((int)Math.Ceiling(checkCode.Length * 12.5), 22);
             Graphics g = Graphics.FromImage(image);
             try
